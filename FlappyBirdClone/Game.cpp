@@ -1,10 +1,13 @@
 #include "Game.hpp"
+#include "SplashState.hpp"
+
 
 namespace Sonar
 {
 	Game::Game(int width, int height, std::string title)
 	{
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
+		_data->machine.AddState(StateRef(new SplashState(this->_data)));
 
 		this->Run();
 	}
@@ -12,6 +15,7 @@ namespace Sonar
 	void Game::Run()
 	{
 		float newTime, frameTime, interpolation;
+
 		float currentTime = this->_clock.getElapsedTime().asSeconds();
 		float accumulator = 0.0f;
 

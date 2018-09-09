@@ -29,9 +29,6 @@ namespace Sonar
 
 		GameDataRef _data = std::make_shared<GameData>();
 
-		void Run()
-		{
-
-		}
+		void Run();
 	};
 }
